@@ -29,5 +29,20 @@ function create(req, res) {
     });
 }
 
+function update(req, res) {
+  const { id, name, saying } = req.body;
 
-module.exports = { get, create };
+  Review.findOne({ id })
+    .then(review => {
+      review.name = name;
+      review.saying = saying;
+      review.save().then(res.json(review));
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
+}
+
+
+
+module.exports = { get, create, update };

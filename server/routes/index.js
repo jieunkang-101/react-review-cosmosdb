@@ -27,5 +27,9 @@ router.post('/review', function(req, res, next) {
   reviewService.create(req, res);
 }); 
 
+router.post('/hero', (req, res) => {
+  heroesService.update(req, res);
+});
+
 
 module.exports = router;
