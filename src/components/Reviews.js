@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Review from './Review';
+
 
 class Reviews extends Component {
 
@@ -23,9 +25,7 @@ class Reviews extends Component {
         <ul className="reviews">
           {
             this.state.reviews.map(review => {
-              return (
-                <li>{review.name}</li>
-              )
+              return <Review review={review} />
             })
           }
         </ul>
