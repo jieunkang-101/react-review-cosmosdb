@@ -23,4 +23,9 @@ router.get('/reviews', function(req, res, next) {
   // res.json(reviews);
 });  
 
+router.post('/review', function(req, res, next) {
+  reviewService.create(req, res);
+}); 
+
+
 module.exports = router;

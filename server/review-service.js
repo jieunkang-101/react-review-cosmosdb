@@ -15,4 +15,19 @@ function get(req, res) {
     });
 }
 
-module.exports = { get };
+function create(req, res) {
+  const { id, name, saying } = req.body;
+
+  const review = new Review({ id, name, saying });
+  review
+    .save()
+    .then(() => {
+      res.json(review);
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
+}
+
+
+module.exports = { get, create };
