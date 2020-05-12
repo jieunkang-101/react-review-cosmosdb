@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Review = props => {
+  // console.log(props);
   return (
     <li
       onClick={() => props.onSelect(props.review)}
