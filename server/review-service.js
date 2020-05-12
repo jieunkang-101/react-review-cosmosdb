@@ -43,6 +43,16 @@ function update(req, res) {
     });
 }
 
+function destroy(req, res) {
+  const { id } = req.params;
 
+  Review.findOneAndRemove({ id })
+    .then(review => {
+      res.json(review);
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
+}
 
-module.exports = { get, create, update };
+module.exports = { get, create, update, destroy };

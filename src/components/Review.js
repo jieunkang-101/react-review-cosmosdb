@@ -1,19 +1,30 @@
 import React from 'react';
 
-const Review = (props) => {
+const Review = props => {
   return (
-    <li>
-
-      <button className="delete-button">Delete</button>
+    <li
+      onClick={() => props.onSelect(props.review)}
+      className={props.review === props.selectedReview ? 'selected' : ''}
+    >
+      <button
+        className="delete-button"
+        onClick={e => props.onDelete(e, props.review)}
+      >
+        Delete
+      </button>
       <div className="review-element">
-        <div className="badge">{props.review.id}</div>
-        <div className="name">{props.review.name}</div>
-        <div className="content">{props.review.content}</div>
+        <div className="badge">
+          {props.review.id}
+        </div>
+        <div className="name">
+          {props.review.name}
+        </div>
+        <div className="saying">
+          {props.review.saying}
+        </div>
       </div>
-
     </li>
-  )
-}
-
+  );
+};
 
 export default Review;
